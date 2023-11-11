@@ -9,7 +9,7 @@ sealed interface OperationResult<out T> {
         }
     }
 
-    fun onSuccess(block: (T) -> Unit)  {
+    suspend fun onSuccess(block: suspend (T) -> Unit)  {
         if (this is Success) {
             block(this.data)
         } else {

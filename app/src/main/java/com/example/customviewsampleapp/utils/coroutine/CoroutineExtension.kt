@@ -2,18 +2,23 @@ package com.example.customviewsampleapp.utils.coroutine
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-inline fun CoroutineScope.doOnMain(crossinline block: suspend () -> Unit) {
-    launch(Dispatchers.Main) {
+inline fun ViewModel.launchOnMain(crossinline block: suspend () -> Unit) {
+    viewModelScope.launch(Dispatchers.Main) {
         block()
     }
 }
 
-inline fun ViewModel.doOnIO(crossinline block: suspend () -> Unit) {
-    viewModelScope.launch(Dispatchers.IO) {
+suspend fun <T> doOnIO(
+    dispatcher: CoroutineDispatcher = Dispatchers.IO,
+    block: suspend CoroutineScope.() -> T
+): T {
+    return withContext(dispatcher) {
         block()
     }
 }

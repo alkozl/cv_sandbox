@@ -1,9 +1,7 @@
 package com.example.customviewsampleapp.view.graph
 
 import com.example.customviewsampleapp.model.domain.Graph
-import com.example.customviewsampleapp.utils.coroutine.doOnMain
 import com.example.customviewsampleapp.utils.uistate.UiState
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 
 sealed class GraphUiState : UiState {
@@ -13,12 +11,9 @@ sealed class GraphUiState : UiState {
 
     data object EmptyState : GraphUiState()
 
-    fun updateFlow(
-        flow: MutableStateFlow<GraphUiState>,
-        coroutineScope: CoroutineScope
+    suspend fun updateFlow(
+        flow: MutableStateFlow<GraphUiState>
     ) {
-        coroutineScope.doOnMain {
-            flow.emit(this)
-        }
+        flow.emit(this)
     }
 }
