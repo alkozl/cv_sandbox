@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="graphView_axisIntervalWidth">25dp</dimen>
+    <dimen name="graphView_axisIntervalSize">4dp</dimen>
+    <dimen name="graphView_axisStrokeWidth">2dp</dimen>
+    <dimen name="graphView_pointWidth">4dp</dimen>
+    <dimen name="graphView_backgroundStrokeWidth">1dp</dimen>
+    <dimen name="graphView_pointsPathStrokeWidth">1dp</dimen>
+</resources>

@@ -43,6 +43,17 @@ class GraphFragment : Fragment() {
     }
 
     private fun handleGraphUiState(graphUiState: GraphUiState) {
+        when(graphUiState) {
+            is GraphUiState.DataState -> {
+                handleGraphDataState(graphUiState)
+            }
+            else -> {
 
+            }
+        }
+    }
+
+    private fun handleGraphDataState(graphUiState: GraphUiState.DataState) {
+        binding.graphView.setGraph(graph = graphUiState.graph)
     }
 }

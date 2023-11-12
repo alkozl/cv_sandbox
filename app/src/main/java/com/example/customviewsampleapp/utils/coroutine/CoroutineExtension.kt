@@ -22,3 +22,12 @@ suspend fun <T> doOnIO(
         block()
     }
 }
+
+suspend fun <T> doOnDefault(
+    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+    block: suspend CoroutineScope.() -> T
+): T {
+    return withContext(dispatcher) {
+        block()
+    }
+}

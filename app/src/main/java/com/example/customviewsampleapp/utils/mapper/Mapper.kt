@@ -1,5 +1,5 @@
 package com.example.customviewsampleapp.utils.mapper
 
-interface Mapper<I, O> {
-    fun convert(input: I): O
+interface Mapper<I : Any?, O : Any?> {
+    suspend fun convert(input: I): O? = null
 }

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.customviewsampleapp.app.App
 import com.example.customviewsampleapp.domain.graph.GetGraphUseCase
-import com.example.customviewsampleapp.model.domain.Graph
+import com.example.customviewsampleapp.model.ui.GraphUi
 import com.example.customviewsampleapp.utils.coroutine.launchOnMain
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -38,7 +38,7 @@ class GraphViewModel(
         }
     }
 
-    private suspend fun updateGraphDataState(graph: Graph) {
+    private suspend fun updateGraphDataState(graph: GraphUi) {
         GraphUiState.DataState(graph)
             .updateFlow(_graphUiState)
     }

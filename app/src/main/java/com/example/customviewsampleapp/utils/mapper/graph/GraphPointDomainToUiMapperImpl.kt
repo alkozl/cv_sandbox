@@ -1,0 +1,3 @@
+package com.example.customviewsampleapp.utils.mapper.graph
+
+class GraphPointDomainToUiMapperImpl : GraphPointDomainToUiMapper

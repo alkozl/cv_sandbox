@@ -3,11 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="Тест"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:layout_gravity="center"
+    <com.example.customviewsampleapp.view.widget.graph.GraphView
+        android:id="@+id/graphView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
