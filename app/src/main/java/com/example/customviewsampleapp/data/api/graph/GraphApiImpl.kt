@@ -11,6 +11,7 @@ import java.time.temporal.ChronoUnit
 import kotlin.random.Random
 
 class GraphApiImpl : GraphApi {
+    // todo Добавить сохранение графика
     override suspend fun getGraph(): OperationResult<GraphDto> {
         val pointsCountRandom = Random.nextInt(5, 25)
 

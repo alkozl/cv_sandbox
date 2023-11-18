@@ -10,8 +10,10 @@ class GraphDomainToUiMapperImpl(
     override suspend fun convert(input: Graph): GraphUi {
         return input.run {
             val pointsUi = points.map { graphPointDomainToUiMapper.convert(it) }
-            val maxValue = doOnDefault { pointsUi.maxBy { it.value } }
-            val minValue = doOnDefault { pointsUi.minBy { it.value } }
+            val (minValue, maxValue) = doOnDefault {
+                val sortedPoints = pointsUi.sortedBy { it.value }
+                sortedPoints.first() to sortedPoints.last()
+            }
             GraphUi(points = pointsUi, maxValue = maxValue, minValue = minValue)
         }
     }
